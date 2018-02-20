@@ -18,6 +18,18 @@ io.on('connection', (socket) => {
 
   let timeStamp = new Date().toLocaleString();
 
+  socket.emit('adminMessage', {
+    from: 'Admin',
+    message: 'Welcome to ChattyChat!',
+    createdAt: timeStamp
+  });
+
+  socket.broadcast.emit('adminMessage', {
+    from: 'Admin',
+    text: 'New user has joined ChattyChat.',
+    createdAt: timeStamp
+  });
+
   socket.on('createMessage', (newMessage) => {
     console.log('New Message: ', newMessage);
     io.emit('newMessage', {
