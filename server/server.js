@@ -22,9 +22,10 @@ io.on('connection', (socket) => {
 
   socket.broadcast.emit('adminMessage', generateMessage('Admin','New user has joined ChattyChat.'));
 
-  socket.on('createMessage', (newMessage) => {
+  socket.on('createMessage', (newMessage, callback) => {
     console.log('New Message: ', newMessage);
     io.emit('newMessage',generateMessage(newMessage.from, newMessage.text));
+    callback('This from the server.');
   });
 
   socket.on('disconnect', () => {

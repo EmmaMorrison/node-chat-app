@@ -4,8 +4,17 @@
   <meta charset="utf-8">
 </head>
 <body>
-  <p>Welcome to the chat app</p>
+  <h2>Welcome to Chatty Chat!</h2>
+  <ul id="adminMessages"></ul>
+  <form id="message-form">
+    <input name="message" type="text" placeholder="Type your message here" />
+    <button>Send</button>
+  </form>
+
+  <ol id="messages"></ol>
+
   <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/libs/jquery-3.3.1.min.js"></script>
   <script src="/js/index.js"></script>
 </body>
 </html>
