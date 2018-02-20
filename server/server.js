@@ -16,6 +16,18 @@ app.use(express.static(publicPath));
 io.on('connection', (socket) => {
   console.log('New user connected');
 
+  let timeStamp = new Date().toLocaleString();
+
+  socket.emit('newMessage', {
+    from: "Emma",
+    text: "Hello, and welcome to ChattyChat",
+    createdAt: timeStamp
+  });
+
+  socket.on('createMessage', (newMessage) => {
+    console.log('New Message: ', newMessage);
+  })
+
   socket.on('disconnect', () => {
     console.log('User disconnected.');
   });
