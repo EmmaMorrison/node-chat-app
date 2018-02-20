@@ -18,15 +18,14 @@ io.on('connection', (socket) => {
 
   let timeStamp = new Date().toLocaleString();
 
-  socket.emit('newMessage', {
-    from: "Emma",
-    text: "Hello, and welcome to ChattyChat",
-    createdAt: timeStamp
-  });
-
   socket.on('createMessage', (newMessage) => {
     console.log('New Message: ', newMessage);
-  })
+    io.emit('newMessage', {
+      from: newMessage.from,
+      text: newMessage.text,
+      createdAt: timeStamp
+    });
+  });
 
   socket.on('disconnect', () => {
     console.log('User disconnected.');
