@@ -3,6 +3,8 @@ const http = require('http');
 const express = require('express');
 const socketIO = require('socket.io');
 
+const {generateMessage} = require('./utils/message');
+
 const publicPath = path.join(__dirname, '../public');
 const port = process.env.PORT || 3000;
 
@@ -16,27 +18,13 @@ app.use(express.static(publicPath));
 io.on('connection', (socket) => {
   console.log('New user connected');
 
-  let timeStamp = new Date().toLocaleString();
+  socket.emit('adminMessage', generateMessage('Admin','Welcome to ChattyChat!'));
 
-  socket.emit('adminMessage', {
-    from: 'Admin',
-    message: 'Welcome to ChattyChat!',
-    createdAt: timeStamp
-  });
-
-  socket.broadcast.emit('adminMessage', {
-    from: 'Admin',
-    text: 'New user has joined ChattyChat.',
-    createdAt: timeStamp
-  });
+  socket.broadcast.emit('adminMessage', generateMessage('Admin','New user has joined ChattyChat.'));
 
   socket.on('createMessage', (newMessage) => {
     console.log('New Message: ', newMessage);
-    io.emit('newMessage', {
-      from: newMessage.from,
-      text: newMessage.text,
-      createdAt: timeStamp
-    });
+    io.emit('newMessage',generateMessage(newMessage.from, newMessage.text));
   });
 
   socket.on('disconnect', () => {
