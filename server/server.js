@@ -3,7 +3,7 @@ const http = require('http');
 const express = require('express');
 const socketIO = require('socket.io');
 
-const {generateMessage} = require('./utils/message');
+const {generateMessage, generateLocationMessage} = require('./utils/message');
 
 const publicPath = path.join(__dirname, '../public');
 const port = process.env.PORT || 3000;
@@ -22,10 +22,13 @@ io.on('connection', (socket) => {
 
   socket.broadcast.emit('adminMessage', generateMessage('Admin','New user has joined ChattyChat.'));
 
-  socket.on('createMessage', (newMessage, callback) => {
-    console.log('New Message: ', newMessage);
-    io.emit('newMessage',generateMessage(newMessage.from, newMessage.text));
+  socket.on('createMessage', (message, callback) => {
+    io.emit('newMessage',generateMessage(message.from, message.text));
     callback('This from the server.');
+  });
+
+  socket.on('createLocationMessage', (coords) => {
+    io.emit('newLocationMessage', generateLocationMessage('Admin', coords.latitude,coords.longitude));
   });
 
   socket.on('disconnect', () => {
@@ -36,5 +39,3 @@ io.on('connection', (socket) => {
 server.listen(port, () => {
   console.log(`Started up at port ${port}`);
 });
-
-module.exports = {app};
