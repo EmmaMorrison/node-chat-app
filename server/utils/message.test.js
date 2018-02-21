@@ -9,7 +9,7 @@ describe('generateMessage', () => {
 
     expect(message.from).toBe(from);
     expect(message.text).toBe(text);
-    expect(message.createdAt).toBeA('string');
+    expect(message.createdAt).toBeA('number');
 
     console.log(message.from);
     console.log(message.text);
@@ -26,7 +26,7 @@ describe('generateLocationMessage', () => {
 
     expect(message.from).toBe(from);
     expect(message.url).toInclude(latitude,longitude);
-    expect(message.createdAt).toBeA('string');
+    expect(message.createdAt).toBeA('number');
 
     console.log(message.url);
   });
