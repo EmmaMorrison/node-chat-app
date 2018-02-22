@@ -1,3 +1,7 @@
+/* font-family: 'Raleway', sans-serif;
+font-family: 'Permanent Marker', cursive;
+font-family: 'Amatic SC', cursive; */
+
 button,button:hover {
   border:none;
   color:#fff;
@@ -12,9 +16,8 @@ button,button:hover {
   box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
   font-weight:300;
-  font-size:.95rem;
+  font-size:1rem;
 }
 
 li,ul {
@@ -24,13 +27,14 @@ li,ul {
 h3 {
   font-weight:600;
   text-align:center;
-  font-size:1.5rem;
+  font-size:1.7rem;
 }
 
 button {
   background:#265f82;
   cursor:pointer;
   transition:background .3s ease;
+  font-family: 'Raleway', sans-serif;
 }
 
 button:hover {
@@ -65,6 +69,7 @@ button:disabled {
 
 .form-field {
   margin:20px 0;
+  font-family: 'Raleway', sans-serif;
 }
 
 .form-field>* {
@@ -74,6 +79,7 @@ button:disabled {
 .form-field label {
   display:block;
   margin-bottom:7px;
+  font-family: 'Raleway', sans-serif;
 }
 
 .form-field input,.form-field select {
@@ -100,12 +106,14 @@ button:disabled {
 .chat__footer,.chat__sidebar li {
   background:#e6eaee;
   padding:10px;
+  font-family: 'Raleway', sans-serif;
 }
 
 .chat__sidebar h3 {
   color:#e6eaee;
   margin:10px 20px;
   text-align:left;
+  font-family: 'Raleway', sans-serif;
 }
 
 .chat__sidebar li {
@@ -131,6 +139,7 @@ button:disabled {
 
 .chat__messages#messages {
   max-height: 460px;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .chat__messages#adminMessages {
@@ -138,6 +147,7 @@ button:disabled {
   min-height: 150px;
   background-color: #e1e1e1;
   color: #fff;
+  font-family: 'Raleway', sans-serif;
 }
 
 .chat__footer {
@@ -158,6 +168,7 @@ button:disabled {
   border:none;
   padding:10px;
   flex-grow:1;
+  font-family: 'Raleway', sans-serif;
 }
 
 .message {
@@ -172,10 +183,12 @@ button:disabled {
 .message__title h4 {
   font-weight:600;
   margin-right:10px;
+  font-family: 'Raleway', sans-serif;
 }
 
 .message__title span {
   color:#999;
+  font-family: 'Raleway', sans-serif;
 }
 
 @media (max-width:600px) {
