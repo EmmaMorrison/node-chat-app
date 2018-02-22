@@ -129,7 +129,13 @@ button:disabled {
   border:1px solid #e1e1e1;
 }
 
+.chat__messages#messages {
+  max-height: 460px;
+}
+
 .chat__messages#adminMessages {
+  max-height: 300px;
+  min-height: 150px;
   background-color: #e1e1e1;
   color: #fff;
 }
