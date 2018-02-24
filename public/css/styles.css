@@ -139,7 +139,12 @@ button:disabled {
 
 .chat__messages#messages {
   max-height: 460px;
-  font-family: 'Permanent Marker', cursive;
+}
+
+.chat__messages#messages li {
+  font-family: 'Shrikhand', cursive;
+  font-size: 1.5rem;
+  letter-spacing: 1;
 }
 
 .chat__messages#adminMessages {
